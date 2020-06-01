@@ -1,25 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const BlogDetails = ({ blog, user, handleClick, updateBlog, deleteBlog }) => {
-  const handleLike = () => {
-    const blogToUpdate = {
-      user: blog.user.id,
-      title: blog.title,
-      author: blog.author,
-      likes: blog.likes + 1,
-      url: blog.url
-    }
-
-    updateBlog(blog.id, blogToUpdate)
-  }
-
-  const handleDelete = () => {
-    const message = `Remove blog ${blog.title} by ${blog.author}`
-    if (window.confirm(message)) {
-      deleteBlog(blog.id)
-    }
-  }
+const BlogDetails = ({ blog, user, handleClick, handleLike, handleDelete }) => {
 
   const deleteButton = {
     backgroundColor: '#5F9EA0',
@@ -47,9 +29,6 @@ const BlogDetails = ({ blog, user, handleClick, updateBlog, deleteBlog }) => {
 BlogDetails.propTypes = {
   blog: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
-  deleteBlog: PropTypes.func.isRequired,
-  updateBlog: PropTypes.func.isRequired,
-  handleClick: PropTypes.func.isRequired
 }
 
 export default BlogDetails

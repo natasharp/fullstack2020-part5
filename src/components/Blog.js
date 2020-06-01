@@ -17,21 +17,40 @@ const Blog = ({ blog, user, updateBlog, deleteBlog }) => {
     setDetails(!details)
   }
 
+  const handleLike = () => {
+    const blogToUpdate = {
+      user: blog.user.id,
+      title: blog.title,
+      author: blog.author,
+      likes: blog.likes + 1,
+      url: blog.url
+    }
+
+    updateBlog(blog.id, blogToUpdate)
+  }
+
+  const handleDelete = () => {
+    const message = `Remove blog ${blog.title} by ${blog.author}`
+    if (window.confirm(message)) {
+      deleteBlog(blog.id)
+    }
+  }
+
   if (details === true) {
     return (
-      <div style={blogStyle}>
+      <div style={blogStyle} className='blogDetails'>
         <BlogDetails
           blog={blog}
           user={user}
           handleClick={handleClick}
-          updateBlog={updateBlog}
-          deleteBlog={deleteBlog} />
+          handleLike={handleLike}
+          handleDelete={handleDelete} />
       </div>
     )
   }
 
   return (
-    <div style={blogStyle}>
+    <div style={blogStyle} className='blog'>
       {blog.title} {blog.author} <span>&nbsp;</span>
       <button onClick={handleClick}>view</button>
     </div>
@@ -40,9 +59,7 @@ const Blog = ({ blog, user, updateBlog, deleteBlog }) => {
 
 Blog.propTypes = {
   blog: PropTypes.object.isRequired,
-  user: PropTypes.object.isRequired,
-  deleteBlog: PropTypes.func.isRequired,
-  updateBlog: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired
 }
 
 export default Blog
