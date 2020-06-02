@@ -28,14 +28,14 @@ const Notification = ({ message, success }) => {
 
   if (success === true) {
     return (
-      <div style={notificationStyle}>
+      <div className="notification" style={notificationStyle}>
         {message}
       </div>
     )
   }
 
   return (
-    <div style={errorStyle}>
+    <div className="error" style={errorStyle}>
       {message}
     </div>
   )

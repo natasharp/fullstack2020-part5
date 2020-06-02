@@ -10,18 +10,18 @@ const BlogDetails = ({ blog, user, handleClick, handleLike, handleDelete }) => {
 
   return (
     <div>
-      <div>{blog.title}
+      <div >{blog.title}
         <span>&nbsp;</span>
         {blog.author}
         <span>&nbsp;</span>
         <button onClick={handleClick}>hide</button>
       </div>
       <div>{blog.url}</div>
-      <div>{blog.likes}
+      <div id="likes-div">{blog.likes}
         <span>&nbsp;</span>
         <button onClick={handleLike}>like</button></div>
       <div>{blog.user.name}</div>
-      <button style={deleteButton} onClick={handleDelete}>remove</button>
+      <button id="delete-button" style={deleteButton} onClick={handleDelete}>remove</button>
     </div>
   )
 }

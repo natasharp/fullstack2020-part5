@@ -43,7 +43,7 @@ const App = () => {
       setUsername('')
       setPassword('')
     } catch (error) {
-      setNotificationMessage('wrong username or password')
+      setNotificationMessage('wrong credentials')
       setIsSuccess(false)
       setTimeout(() => {
         setNotificationMessage(null)
@@ -113,6 +113,7 @@ const App = () => {
         <form onSubmit={handleLogin}>
           <div>
             username <input
+              id="username-input"
               type="text"
               value={username}
               name="Username"
@@ -121,13 +122,14 @@ const App = () => {
           </div>
           <div>
             password <input
+              id="password-input"
               type="password"
               value={password}
               name="Password"
               onChange={({ target }) => setPassword(target.value)}
             />
           </div>
-          <button type="submit">login</button>
+          <button id="login-button" type="submit">login</button>
         </form >
       </div >
     )
@@ -140,18 +142,20 @@ const App = () => {
         message={notificationMessage}
         success={isSuccess} />
       <div>{user.name} is logged in
-        <button onClick={handleLogout}>logout</button>
+        <button id="logout-button" onClick={handleLogout}>logout</button>
       </div>
       <br />
       {blogForm()}
-      {sortBlogs(blogs).map(blog =>
-        <Blog
-          key={blog.id}
-          blog={blog}
-          user={user}
-          updateBlog={updateBlog}
-          deleteBlog={deleteBlog} />
-      )}
+      <div id="blogs-div">
+        {sortBlogs(blogs).map(blog =>
+          <Blog
+            key={blog.id}
+            blog={blog}
+            user={user}
+            updateBlog={updateBlog}
+            deleteBlog={deleteBlog} />
+        )}
+      </div>
     </div>
   )
 }

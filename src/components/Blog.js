@@ -52,7 +52,7 @@ const Blog = ({ blog, user, updateBlog, deleteBlog }) => {
   return (
     <div style={blogStyle} className='blog'>
       {blog.title} {blog.author} <span>&nbsp;</span>
-      <button onClick={handleClick}>view</button>
+      <button id="view-button" onClick={handleClick}>view</button>
     </div>
   )
 }
