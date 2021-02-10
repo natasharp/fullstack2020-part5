@@ -4,7 +4,7 @@ This repository contains exercise solutions for part 5 of the [Full Stack Open 2
 
 ## Part 5 - [Testing React apps](https://fullstackopen.com/en/part5)
 Part 5 investigates possibilities for testing the React code. It covers writing unit tests that have validated the correct functioning of individual components (using Jest library) and end to end tests to test the whole application (using Cypress library).
-This repository contains the Bloglist React app for tracking blogs you like. This app was bootstrapped with Create React App.
+This repository contains the Bloglist React app for tracking blogs you like. The app was bootstrapped with Create React App.
 
 
 ## Available Scripts
